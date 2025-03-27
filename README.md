@@ -141,9 +141,74 @@ Este arquivo.
 Lista de dependências da aplicação.
 
 #### requisicao_mcp.py
-Este arquivo define uma função para enviar requisições POST em formato JSON para um servidor MCP e retornar a resposta como um dicionário Python, tratando possíveis erros de conexão.
+Este arquivo define uma função para enviar requisições GET em formato JSON para um servidor MCP e retornar a resposta como um dicionário Python, tratando possíveis erros de conexão.
 
 #### servidor_mcp.py
-Este arquivo implementa um servidor MCP utilizando o Flask com um endpoint (/mcp) que recebe requisições POST em JSON. Ele processa consultas de carros com base em critérios como marca, modelo, ano, combustível, preço e cor, utilizando a função consultar_carros do módulo database. Se os parâmetros forem válidos, retorna uma lista de carros encontrados; caso contrário, retorna um erro.
+Este arquivo implementa um servidor MCP utilizando o Flask com um endpoint (/mcp) que recebe requisições GET em JSON. Ele processa consultas de carros com base em critérios como marca, modelo, ano, combustível, preço e cor, utilizando a função consultar_carros do módulo database. Se os parâmetros forem válidos, retorna uma lista de carros encontrados; caso contrário, retorna um erro.
 
 
+### ADICIONAL: Exemplo de requisição via Postman ou Insomnia
+
+Para testar a API o servidor MCP deve estar rodando. Você pode utilizar o Postman ou o Insomnia. Segue abaixo um exemplo:
+
+- Endpoint: Buscar os veículos
+
+    **URL:**  
+```
+GET http://localhost:8080/mcp
+```
+
+**Headers:**  
+```json
+{
+  "Content-Type": "application/json"
+}
+```
+
+**Payload (JSON):**  
+```json
+{
+   
+    "tool_name": "consultar_carros",
+    "tool_input": {
+        "marca": "Ford", 
+        "modelo": "",
+        "ano_minimo":"",
+        "ano_maximo":"",
+        "cor":"Preto",
+        "preco_minimo":"",
+        "preco_maximo":"90000",
+        "tipo_de_combustivel": "Diesel"
+
+        }
+    
+}s
+```
+
+**Resposta Esperada (201 Created):**  
+```json
+{
+    "resultados": [
+        {
+            "ano": 2014,
+            "cor": "Preto",
+            "id": 64,
+            "marca": "Ford",
+            "modelo": "Ranger",
+            "preco": 30145.24,
+            "quilometragem": 144882,
+            "tipo": "Diesel"
+        },
+        {
+            "ano": 2015,
+            "cor": "Preto",
+            "id": 82,
+            "marca": "Ford",
+            "modelo": "Focus",
+            "preco": 47069.76,
+            "quilometragem": 8012,
+            "tipo": "Diesel"
+        }
+    ]
+}
+```

@@ -16,7 +16,7 @@ def fazer_requisicao_mcp(url, payload):
     """
     try:
         headers = {'Content-Type': 'application/json'}
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response = requests.get(url, headers=headers, data=json.dumps(payload))
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as erro:

@@ -4,7 +4,7 @@ from database import consultar_carros
 
 app = Flask(__name__)
 
-@app.route('/mcp', methods=['POST'])
+@app.route('/mcp', methods=['GET'])
 def mcp_endpoint():
     try:
         payload = request.get_json()
