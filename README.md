@@ -1,30 +1,30 @@
 # Agente Virtual Carros
 
-Agente virtual que permite consultar opções de carros em uma base de dados SQlite.
+Agente virtual que permite consultar opções de veículos em uma base de dados SQlite.
 
 ## Tecnologias Utilizadas
 
-- Python 3.12
-- Flask (backend)
-- SQLAlchemy, SQlite (banco de dados)
-- requests para requisições no server
+- Python 3.12.
+- Flask (backend).
+- SQLAlchemy, SQlite (banco de dados).
+- requests para requisições no server.
 
 ## Funcionalidades
 
-O sistema implementa um esquema para representar automóveis no banco de dados, contendo os seguintes atributos:
+O sistema implementa um esquema para representar veículos no banco de dados, contendo os seguintes atributos:
 
 - Marca: Fabricante do veículo (ex.: Toyota, Ford, Honda).
-- Modelo: Nome do modelo específico do automóvel (ex.: Corolla, Fiesta, Civic).
+- Modelo: Nome do modelo específico do veículo (ex.: Corolla, Fiesta, Civic).
 - Ano: Ano de fabricação do veículo.
 - Tipo de combustível: Combustível utilizado pelo veículo (ex.: Gasolina, Diesel, Elétrico, Flex).
-- Cor: Cor predominante do automóvel.
+- Cor: Cor predominante do veículo.
 - Quilometragem: Distância total percorrida pelo veículo.
-- Preço: Preço de venda do automóvel
-- Número de portas: Quantidade de portas do automóvel.
+- Preço: Preço de venda do automóvel.
+- Número de portas: Quantidade de portas do veículo.
 - Câmbio: Tipo de câmbio utilizado (ex.: Manual, Automático).
-- Observação : Características adicionais do automóvwl
+- Observação : Características adicionais do veículo.
 
-Para popular o banco de dados, o sistema conta com um script automatizado que insere pelo menos 100 registros de veículos com dados simulados. Esses dados são gerados de forma randômica, garantindo diversidade de marcas, modelos, anos, combustíveis e outras características.
+Para popular o banco de dados, o sistema conta com um script automatizado que insere pelo menos 100 registros de veículos com dados simulados (mockados). Esses dados são gerados de forma randômica, garantindo diversidade de marcas, modelos, anos, combustíveis e outras características.
 
 ### Aplicação Interativa via Terminal
 
@@ -80,7 +80,6 @@ O agente virtual recebe a lista de veículos compatíveis e exibe os resultados 
    ```bash
    git clone https://github.com/Nedejr/agente_virtual_carros.git
 
-
 2. Acesse o diretório da aplicação:
     ```bash
     cd nome-do-repositorio
@@ -90,7 +89,6 @@ O agente virtual recebe a lista de veículos compatíveis e exibe os resultados 
     python3 -m venv venv
 
 4. Ative o ambiente virtual:
-
 - No Linux/Mac:
     ```bash
     source venv/bin/activate
@@ -116,20 +114,18 @@ O agente virtual recebe a lista de veículos compatíveis e exibe os resultados 
 ### Estrutura de Arquivos
 
 #### carros.db:
-Este é o arquivo do banco de dados SQLite que armazenará as informações dos carros.
+Este é o arquivo do banco de dados SQLite que armazenará as informações dos veículos.
 Ele será criado automaticamente quando python servedir_mcp.py for executado a primeira vez.
 
 #### database.py
-Este arquivo conterá todo o código relacionado à interação com o banco de dados SQLite usando SQLAlchemy.
-Incluirá a configuração do banco de dados, inserção dos registros de carros e a função consultar_carros.
+Este arquivo conterá todo o código relacionado à interação com o banco de dados SQLite usando SQLAlchemy. Incluirá a configuração do banco de dados, inserção dos registros de veículo e a função consultar_carros.
 
 #### carrega_dados.py
-Este arquivo contém a lógica para geração de carros 'mockados' de forma aleatória.
+Este arquivo contém a lógica para geração de veículo 'mockados' de forma aleatória.
 
 #### main.py
 Este arquivo será o ponto de entrada principal do projeto.
-Ele importará as funções dos outros arquivos, configurará a requisição MCP e processará a resposta.
-Aqui ficará o código de chamada da função de requisição mcp, e o tratamento dos dados retornados.
+Ele importará as funções dos outros arquivos, configurará a requisição MCP e processará a resposta. Aqui ficará o código de chamada da função de requisição mcp, e o tratamento dos dados retornados.
 
 #### models.py
 Este arquivo contéam a definição do modelo Carro.
@@ -144,7 +140,7 @@ Lista de dependências da aplicação.
 Este arquivo define uma função para enviar requisições GET em formato JSON para um servidor MCP e retornar a resposta como um dicionário Python, tratando possíveis erros de conexão.
 
 #### servidor_mcp.py
-Este arquivo implementa um servidor MCP utilizando o Flask com um endpoint (/mcp) que recebe requisições GET em JSON. Ele processa consultas de carros com base em critérios como marca, modelo, ano, combustível, preço e cor, utilizando a função consultar_carros do módulo database. Se os parâmetros forem válidos, retorna uma lista de carros encontrados; caso contrário, retorna um erro.
+Este arquivo implementa um servidor MCP utilizando o Flask com um endpoint (/mcp) que recebe requisições GET em JSON. Ele processa consultas de veículos com base em critérios como marca, modelo, ano, combustível, preço e cor, utilizando a função consultar_carros do módulo database. Se os parâmetros forem válidos, retorna uma lista de veículo encontrados; caso contrário, retorna um erro.
 
 
 ### ADICIONAL: Exemplo de requisição via Postman ou Insomnia
