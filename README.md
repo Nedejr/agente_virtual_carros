@@ -78,7 +78,7 @@ O agente virtual recebe a lista de veículos compatíveis e exibe os resultados 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/usuario/nome-do-repositorio.git
+   git clone https://github.com/Nedejr/agente_virtual_carros.git
 
 
 2. Acesse o diretório da aplicação:
