@@ -3,18 +3,20 @@ from requisicao_mcp import fazer_requisicao_mcp
 
 
 def agente_virtual():
-    print("### AGENTE VIRTUAL - CARROS ###")
+
+    print("\n\n### AGENTE VIRTUAL - CARROS ###")
+
     while True:
         resposta = input("\n\nOlá, Como posso ajudar? ")
-        if ("procurando" in resposta.lower() or
-            "procurar" in resposta.lower() or
-            "procuro" in resposta.lower() or
-            "carro" in resposta.lower() or
-            "veículo" in resposta.lower() or
-            "veiculo" in resposta.lower()
-            ):
-            
-            print("Ótimo! Vou precisar de algumas informações para encontrar o veículo ideal.")
+
+        if ("procurando" in resposta.lower()
+            or "procurar" in resposta.lower()
+            or "procuro" in resposta.lower()
+            or "carro" in resposta.lower()
+            or "veículo" in resposta.lower()
+            or "veiculo" in resposta.lower()):
+
+            print("\n\nÓtimo! Vou precisar de algumas informações para encontrar o veículo ideal.")
             marca = input("Qual marca do veículo você procura?: ")
             modelo = input("Qual modelo específico você deseja? (ou pressione Enter para qualquer modelo): ")
             ano_min = input("Ano mínimo do veículo? (ou pressione Enter para ignorar): ")
@@ -23,7 +25,7 @@ def agente_virtual():
             preco_min = input("Preço mínimo? (ou pressione Enter para ignorar): ")
             preco_max = input("Preço máximo? (ou pressione Enter para ignorar): ")
             cor = input("Qual cor específico você deseja? (ou pressione Enter para ignorar): ")
-            
+
             print("\nObrigado! Buscando veículos com os seguintes critérios:")
             print(f"Marca: {marca}")
             print(f"Modelo: {modelo if modelo else ''}")
@@ -32,7 +34,7 @@ def agente_virtual():
             print(f"Faixa de preço: {preco_min if preco_min else ''} - {preco_max if preco_max else ''}")
             print(f"Cor: {cor}")
             print("\n\nPesquisando...")
-            
+
             payload = {
                 "marca": str(marca),
                 "modelo": str(modelo) if modelo else "",
@@ -44,14 +46,15 @@ def agente_virtual():
                 "cor": str(cor),
             }
             conectar_no_serivodr_mcp(payload)
-        
+
         continuar = input("\n\nDeseja continuar? (s/n): ")
         if continuar.lower() != 's':
             print("\n\nObrigado por usar o ### AGENTE VIRTUAL - CARROS ###. Até logo!")
             break
 
+
 def conectar_no_serivodr_mcp(payload):
-    # Exemplo de uso
+
     url_servidor_mcp = "http://localhost:8080/mcp"
     payload_requisicao = {
         "tool_name": "consultar_carros",
@@ -66,5 +69,6 @@ def conectar_no_serivodr_mcp(payload):
         else:
             print("Nenhum veículo encontrado com o filtro selecionado")
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     agente_virtual()

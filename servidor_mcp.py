@@ -4,6 +4,7 @@ from database import consultar_carros
 
 app = Flask(__name__)
 
+
 @app.route('/mcp', methods=['GET'])
 def mcp_endpoint():
     try:
@@ -26,6 +27,7 @@ def mcp_endpoint():
             return jsonify({'erro': 'Requisição MCP inválida'}), 400
     except Exception as erro:
         return jsonify({'erro': str(erro)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

@@ -1,17 +1,10 @@
 # models.py
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
-import random
 
-'''
-Modelagem de Dados
-Crie um esquema para representar automóveis com, no mínimo, 10 atributos
-relevantes. Fique à vontade para incluir dados como marca, modelo, ano,
-motorização, tipo de combustível, cor, quilometragem, número de portas,
-transmissão, entre outros.
-'''
 
 Base = declarative_base()
+
 
 class Carro(Base):
     __tablename__ = 'carros'
@@ -24,7 +17,7 @@ class Carro(Base):
     tipo_de_combustível = Column(String)
     cor = Column(String)
     quilometragem = Column(Integer)
-    preco = Column(Float)  
+    preco = Column(Float)
     numero_portas = Column(Integer)
     cambio = Column(String)
     observacao = Column(String)

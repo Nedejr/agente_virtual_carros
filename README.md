@@ -66,6 +66,9 @@ O agente virtual recebe a lista de veículos compatíveis e exibe os resultados 
 - quilometragem
 - preco
 
+![Logo](tela.jpg "Exemplo da Tela do Agente Virtual")
+*Figura 1: Exemplo da Tela do Agente Virtual.*
+
 
 ## Instalação
 

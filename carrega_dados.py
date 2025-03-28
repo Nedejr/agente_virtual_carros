@@ -40,7 +40,6 @@ def gerar_lista_carros():
             observacao_aleatoria = random.choice(observacoes_possiveis)
 
         carro = {
-            
             "marca": marca_selecionada,
             "modelo": modelo_selecionado,
             "ano": ano_fabricacao,
@@ -61,4 +60,3 @@ def gerar_lista_carros():
     # print(json.dumps(lista_de_carros, indent=4)) # Descomente para imprimir a lista formatada em JSON
 
     return lista_de_carros
-
