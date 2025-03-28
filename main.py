@@ -5,9 +5,10 @@ from requisicao_mcp import fazer_requisicao_mcp
 def agente_virtual():
 
     print("\n\n### AGENTE VIRTUAL - CARROS ###")
+    resposta = input("\n\nOlá, Como posso ajudar? ")
 
     while True:
-        resposta = input("\n\nOlá, Como posso ajudar? ")
+        
 
         if ("procurando" in resposta.lower()
             or "procurar" in resposta.lower()
